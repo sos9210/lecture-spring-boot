@@ -18,9 +18,16 @@ public class HelloController {
         this.helloService = helloService;
     }
 
+//    @GetMapping("/hello")
+//    public String hello(String name) {
+//        SimpleHelloService helloService = new SimpleHelloService();
+//        return helloService.sayHello(Objects.requireNonNull(name));
+//    }
+
     @GetMapping("/hello")
     public String hello(String name) {
-        SimpleHelloService helloService = new SimpleHelloService();
-        return helloService.sayHello(Objects.requireNonNull(name));
+        if(name == null || name.length() == 0) throw new IllegalArgumentException();
+
+        return helloService.sayHello(name);
     }
 }

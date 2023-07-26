@@ -1,5 +1,9 @@
 package spring.helloboot;
 
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.core.env.Environment;
 import spring.myspring.config.MySpringBootApplication;
 
 //@Configuration
@@ -277,8 +281,17 @@ public class HellobootApplication {
 //		//스프링컨테이너의 현재 구성정보를 이용해 초기화작업 진행 (등록한 스프링 빈 객체 생성)
 //		applicationContext.refresh();
 //	}
+
+	@Bean
+	ApplicationRunner applicationRunner (Environment env) {
+		return args -> {
+			String name = env.getProperty("my.name");
+			System.out.println("my.name = " + name);
+		};
+	}
 	public static void main(String[] args) {
-		MySpringApplication.run(HellobootApplication.class,args);
+		//MySpringApplication.run(HellobootApplication.class,args);
+		SpringApplication.run(HellobootApplication.class,args);
 
 	}
 }

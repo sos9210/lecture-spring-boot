@@ -14,7 +14,7 @@ public class HelloApiTest {
         // http localhost:8080/hello?name=Spring
         TestRestTemplate rest = new TestRestTemplate();
         ResponseEntity<String> res = rest.getForEntity(
-                "http://localhost:8080/hello?name={name}", String.class, "Spring"
+                "http://localhost:9090/app/hello?name={name}", String.class, "Spring"
         );
 
         //status code 200
@@ -31,7 +31,7 @@ public class HelloApiTest {
         // http localhost:8080/hello?name=Spring
         TestRestTemplate rest = new TestRestTemplate();
         ResponseEntity<String> res = rest.getForEntity(
-                "http://localhost:8080/hello?name=", String.class);
+                "http://localhost:9090/app/hello?name=", String.class);
 
         //status code 200
         Assertions.assertThat(res.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);

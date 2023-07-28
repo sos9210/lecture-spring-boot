@@ -1,3 +1,4 @@
+spring.myspring.config.autoconfig.DataSourceConfig
 spring.myspring.config.autoconfig.PropertyPlaceHolderConfig
 spring.myspring.config.autoconfig.PropertyPostProcessorConfig
 #spring.myspring.config.autoconfig.ServerPropertiesConfig
